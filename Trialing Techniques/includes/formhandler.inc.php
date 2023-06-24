@@ -8,13 +8,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         require_once "dbh.inc.php";
 
-        $query = "INSERT INTO tblusers (email, pwd) VALUES (?, ?);";
+        $query = "INSERT INTO tblusers (email, pwd) VALUES (:email, :pwd);";
 
         //prepares a blank query for $pdo database    
         $stmt = $pdo->prepare($query);
 
+        //binds variables to parameters set in the query
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":pwd", $pwd);
+
         //submits actual data entered by user
-        $stmt->execute([$email, $pwd]);
+        $stmt->execute();
 
         //empties the variables to free up resources
         $query = NULL;
