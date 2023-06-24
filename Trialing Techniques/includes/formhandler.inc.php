@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = NULL;
 
         //sends user back to login page or index
-        header("Location: ./index.html");
+        header("Location: ../index.html");
 
         die();
     } catch (PDOException $e) {
@@ -29,5 +29,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     };
 } else {
     //sends user back if request method was not "POST"
-    header("Location: ./index.html");
+    header("Location: ../index.html");
 }
