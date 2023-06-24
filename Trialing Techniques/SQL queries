@@ -1,0 +1,12 @@
+INSERT INTO tblusers
+    (username, pwd, email)
+VALUES
+    ('Andy', 'andy123', 'andyhuang0611@gmail.com');
+
+
+UPDATE tblusers SET username = 'adsjfla' , pwd ='dkafs' WHERE id = 2;
+
+INSERT INTO tblcomments
+    (username, comment_text, users_id)
+VALUES
+    ('andy', 'andy was here', '2');
