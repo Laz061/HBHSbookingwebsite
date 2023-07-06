@@ -57,27 +57,24 @@
       </div>
     </nav>
 
-    <main>
-      <h1></h1>
-    </main>
-  </div>
+    <div id="index-image-container">
+      <div id="index-text">
+        <h1>HBHS Booking Website</h1>
+        <button>Book Now</button>
+      </div>
+    </div>
 
-  <footer>
-    <h3>Contact Us</h3>
-    <i data-feather="instagram"></i>
-  </footer>
+    <script>
+      feather.replace();
+    </script>
 
-  <script>
-    feather.replace();
-  </script>
+    <script>
+      let subMenu = document.getElementById("subMenu");
 
-  <script>
-    let subMenu = document.getElementById("subMenu");
-
-    function toggleMenu() {
-      subMenu.classList.toggle("open-menu")
-    }
-  </script>
+      function toggleMenu() {
+        subMenu.classList.toggle("open-menu")
+      }
+    </script>
 </body>
 
 </html>
