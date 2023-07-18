@@ -1,3 +1,7 @@
+<?php
+require_once 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -66,6 +70,3 @@
 </body>
 
 </html>
-
-
-<!--dev branch-->
