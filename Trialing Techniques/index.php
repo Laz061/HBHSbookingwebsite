@@ -11,12 +11,17 @@ require_once 'config.php';
     <title>HBHS booking website</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="content-wrapper">
         <header>
-            <img src="images/logo place holder.png" class="logo">
+            <img src="images/logo.png" class="logo">
         </header>
 
         <div class="lform-wrapper">
