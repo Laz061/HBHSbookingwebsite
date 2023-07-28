@@ -194,7 +194,7 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .lform-box {
@@ -207,6 +207,10 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#register_form {
+    height: 750px;
 }
 
 .register {
@@ -251,7 +255,7 @@ nav {
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label {
+.input-box input:not(:placeholder-shown)~label {
     top: -5px;
 }
 

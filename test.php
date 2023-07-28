@@ -1,83 +1,22 @@
-<!DOCTYPE html>
-<html lang="EN-US">
+<?php
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, inital-scale=1.0">
-  <title>HBHS booking website</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/feather-icons"></script>
-</head>
+require_once "includes/dbh.inc.php";
 
-<body>
-  <div class="wrapper">
-    <header>
-      <img src="images/logo place holder.png" class="logo">
-    </header>
-    <div id="wrapperNav">
-      <nav>
-        <ul class="navList">
-          <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
-          <li class="navListItem"><a class="navLinks" href="#">About</a></li>
-          <li class="navListItem"><a class="navLinks" href="index.html">Home</a></li>
-        </ul>
+/*
+$email = "w";
 
-        <i data-feather="user" class="user-pic" onclick="toggleMenu()"></i>
+$query = "SELECT * FROM users WHERE email = :email";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(":email", $email);
+$stmt->execute();
 
-        <div class="sub-menu-wrap" id="subMenu">
-          <div class="sub-menu">
-            <div class="user-info">
-              <i data-feather="user" class="user-info-icon"></i>
-              <h3>USER NAME</h3>
-            </div>
+//fetches the number of rows and stores it
+$results = $stmt->fetchColumn();
 
-            <hr>
+if ($results = 1) {
+    echo "2";
+};*/
 
-            <a href="#" class="sub-menu-link">
-              <i data-feather="user" class="user-info-icon"></i>
-              <p>profile</p>
-              <span>></span>
-            </a>
-
-            <a href="#" class="sub-menu-link">
-              <i data-feather="help-circle" class="user-info-icon"></i>
-              <p>Help</p>
-              <span>></span>
-            </a>
-            <a href="#" class="sub-menu-link">
-              <i data-feather="log-out" class="user-info-icon"></i>
-              <p>Logout</p>
-              <span>></span>
-            </a>
-          </div>
-        </div>
-    </div>
-    </nav>
-
-    <main>
-      <?php
-       echo "hello world"
-      ?>
-
-    </main>
-  </div>
-
-  <footer>
-    <h3>Contact Us</h3>
-    <i data-feather="instagram"></i>
-  </footer>
-
-  <script>
-    feather.replace();
-  </script>
-
-  <script>
-    let subMenu = document.getElementById("subMenu");
-
-    function toggleMenu() {
-      subMenu.classList.toggle("open-menu")
-    }
-  </script>
-</body>
-
-</html>
+$insertQuery = "INSERT INTO users (first_name, last_name, pwd, email, phone) VALUES ('a', 'b', '3', '3', '3');";
+$stmt = $pdo->prepare($insertQuery);
+$stmt->execute();
