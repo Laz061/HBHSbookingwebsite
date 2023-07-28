@@ -1,3 +1,7 @@
+<?php
+require_once 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -20,18 +24,19 @@
             <img src="images/logo.png" class="logo">
         </header>
 
-        <div class="lform-wrapper register">
+        <div class="lform-wrapper">
             <section>
-                <div class="lform-box register">
-                    <form action="">
+                <div class="lform-box">
+                    <form action="includes/formhandler.inc.php" method="post">
                         <a href="index.html"><i data-feather="home" class="btnhome"></i></a>
                         <h2>Login</h2>
+
 
                         <div class="input-box">
                             <span class="icon">
                                 <i data-feather="mail"></i>
                             </span>
-                            <input type="email" required>
+                            <input type="email" required name="email" placeholder=" ">
                             <label>Email</label>
                         </div>
 
@@ -39,23 +44,19 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required>
+                            <input type="password" required name="password" placeholder=" ">
                             <label>password</label>
                         </div>
 
-                        <div class="input-box">
-                            <span class="icon">
-                                <i data-feather="lock"></i>
-                            </span>
-                            <input type="password" required>
-                            <label>Confirm Password</label>
+                        <div class="remember-forgot">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot Password?</a>
                         </div>
 
-
-                        <button class="lgbutton" type="submit">Register</button>
+                        <button class="lgbutton" type="submit">Login</button>
 
                         <div class="register-link">
-                            <p>Already have an account? <a href="login.html">Login</a></p>
+                            <p>Don't have an account? <a href="register.html">Register</a></p>
                         </div>
                     </form>
                 </div>
@@ -74,5 +75,3 @@
 </body>
 
 </html>
-
-<!-- commit-->

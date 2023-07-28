@@ -1,61 +1,22 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-<head>
-  <title>Login Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
+require_once "includes/dbh.inc.php";
 
-    .container {
-      width: 300px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f2f2f2;
-    }
+/*
+$email = "w";
 
-    .container h2 {
-      text-align: center;
-    }
+$query = "SELECT * FROM users WHERE email = :email";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(":email", $email);
+$stmt->execute();
 
-    .container input[type="text"],
-    .container input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
+//fetches the number of rows and stores it
+$results = $stmt->fetchColumn();
 
-    .container input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 3px;
-      background-color: dodgerblue;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
-</head>
+if ($results = 1) {
+    echo "2";
+};*/
 
-<body>
-  <div class="container">
-    <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <input type="submit" value="Login">
-    </form>
-  </div>
-
-  <?php 
-  
-  ?>
-
-</body>
-
-</html>
+$insertQuery = "INSERT INTO users (first_name, last_name, pwd, email, phone) VALUES ('a', 'b', '3', '3', '3');";
+$stmt = $pdo->prepare($insertQuery);
+$stmt->execute();
