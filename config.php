@@ -18,7 +18,6 @@ if (!isset($_SESSION['last_rengeneration'])) {
     session_regenerate_id(true);
     $_SESSION['last_regeneration'] = time();
 } else {
-
     $interval = 60 * 30;
 
     if (time() - $_SESSION['last_rengeneration'] >= $interval) {
@@ -27,3 +26,7 @@ if (!isset($_SESSION['last_rengeneration'])) {
         $_SESSION['last_rengeneration'];
     }
 }
+
+if (isset($_SESSION["userid"]) && $_SESSION["userid"] === true) {
+    header("Location: ./indexli.php");
+};

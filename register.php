@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <img src="images/logo place holder.png" class="logo">
+            <img src="images/logo.png" class="logo">
         </header>
 
         <div class="lform-wrapper">
@@ -78,7 +78,7 @@
                         <button class="lgbutton" type="submit">Register</button>
 
                         <div class="register-link">
-                            <p>Don't have an account? <a href="register.html">Register</a></p>
+                            <p>already have an account? <a href="login.html">Login</a></p>
                         </div>
                     </form>
                 </div>

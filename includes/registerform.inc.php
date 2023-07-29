@@ -23,20 +23,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //if there are any results then outputs error
     if ($results > 0) {
         $error = '<p class="error">The email is already registered</p>';
-        echo $error;
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = '<p class="error">Please enter a valid email address</p>';
     }
     //checks if $pwd is atleast 8 characters
     else if (strlen($pwd) < 8) {
         $error = '<p class="error">Password must be longer than 8 characters</p>';
-        echo $error;
     }
     //checks if the both passwords are the same
     else if ($confirm_pwd != $pwd) {
         $error = '<p class="error">Passwords dont match</p>';
+    }
+
+    if (!empty($error)) {
         echo $error;
     }
+
     //if there are no errors then it will insert the data
-    else if (empty($error)) {
+    if (empty($error)) {
         try {
             $insertQuery = "INSERT INTO users (first_name, last_name, pwd, email, phone) VALUES (:fname, :lname, :pwd, :email, :phone);";
 
@@ -65,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = NULL;
 
             //sends user back to login page or index
-            header("Location: ../indexnli.html");
+            header("Location: ../indexli.html");
             die();
         } catch (PDOException $e) {
             die("query failed: " . $e->getMessage());

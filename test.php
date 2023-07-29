@@ -1,6 +1,7 @@
 <?php
 
 require_once "includes/dbh.inc.php";
+session_start();
 
 /*
 $email = "w";
@@ -16,7 +17,4 @@ $results = $stmt->fetchColumn();
 if ($results = 1) {
     echo "2";
 };*/
-
-$insertQuery = "INSERT INTO users (first_name, last_name, pwd, email, phone) VALUES ('a', 'b', '3', '3', '3');";
-$stmt = $pdo->prepare($insertQuery);
-$stmt->execute();
+echo $_SESSION["user"]['first_name'];
