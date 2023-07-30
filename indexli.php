@@ -26,7 +26,7 @@ require_once "./config.php";
         <ul class="navList">
           <li class="navListItem"><a class="navLinks" href="test.php">Book</a></li>
           <li class="navListItem"><a class="navLinks" href="register.php">About</a></li>
-          <li class="navListItem"><a class="navLinks" href="index.html">Home</a></li>
+          <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
         </ul>
 
         <i data-feather="user" class="user-pic" onclick="toggleMenu()"></i>

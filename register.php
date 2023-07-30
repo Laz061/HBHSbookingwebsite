@@ -19,7 +19,7 @@
             <section>
                 <div class="lform-box" id="register_form">
                     <form action="includes/registerform.inc.php" method="post">
-                        <a href="index.html"><i data-feather="home" class="btnhome"></i></a>
+                        <a href="index.php"><i data-feather="home" class="btnhome"></i></a>
                         <h2>Register</h2>
 
                         <div class="input-box">
@@ -70,10 +70,12 @@
                             <label>Confirm Password</label>
                         </div>
 
+                        <!--
                         <div class="remember-forgot">
                             <label><input type="checkbox"> Remember me</label>
                             <a href="#">Forgot Password?</a>
                         </div>
+                        -->
 
                         <button class="lgbutton" type="submit">Register</button>
 

@@ -25,7 +25,7 @@ require_once "./config.php";
             <ul class="navList">
                 <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
                 <li class="navListItem"><a class="navLinks" href="#">About</a></li>
-                <li class="navListItem"><a class="navLinks" href="index.html">Home</a></li>
+                <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
             </ul>
 
             <a class="btnLogin" href="login.html">Login</a>
@@ -35,7 +35,7 @@ require_once "./config.php";
         <div id="index-image-container">
             <div id="index-text">
                 <h1>HBHS Booking Website</h1>
-                <button>Book Now</button>
+                <a href="login.html"><button>Book Now</button></a>
             </div>
         </div>
     </div>
