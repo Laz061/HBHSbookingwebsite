@@ -7,18 +7,21 @@
     <title>HBHS booking website</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="content-wrapper">
         <header>
-            <img src="images/logo place holder.png" class="logo">
+            <img src="images/logo.png" class="logo">
         </header>
 
         <div class="lform-wrapper">
             <section>
                 <div class="lform-box">
-                    <form action="">
+                    <form action="includes/loginform.inc.php" method="post">
                         <a href="index.html"><i data-feather="home" class="btnhome"></i></a>
                         <h2>Login</h2>
 
@@ -27,7 +30,7 @@
                             <span class="icon">
                                 <i data-feather="mail"></i>
                             </span>
-                            <input type="email" required>
+                            <input type="email" required name="email" placeholder=" ">
                             <label>Email</label>
                         </div>
 
@@ -35,7 +38,7 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required>
+                            <input type="password" required name="password" placeholder=" ">
                             <label>password</label>
                         </div>
 
@@ -47,7 +50,7 @@
                         <button class="lgbutton" type="submit">Login</button>
 
                         <div class="register-link">
-                            <p>Don't have an account? <a href="register.html">Register</a></p>
+                            <p>Don't have an account? <a href="register.php">Register</a></p>
                         </div>
                     </form>
                 </div>
@@ -66,6 +69,3 @@
 </body>
 
 </html>
-
-
-<!--dev branch-->

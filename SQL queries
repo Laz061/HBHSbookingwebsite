@@ -1,0 +1,24 @@
+INSERT INTO tblusers
+    (username, pwd, email)
+VALUES
+    ('Andy', 'andy123', 'andyhuang0611@gmail.com');
+
+
+UPDATE tblusers SET username = 'adsjfla' , pwd ='dkafs' WHERE id = 2;
+
+INSERT INTO tblcomments
+    (username, comment_text, users_id)
+VALUES
+    ('andy', 'andy was here', '2');
+
+CREATE TABLE users
+(
+    id INT(11) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(40) NOT NULL,
+    last_name VARCHAR(40) NOT NULL,
+    pwd VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE KEY,
+    phone VARCHAR(30) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME
+    )
+    

@@ -1,3 +1,7 @@
+<?php
+require_once "./config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -7,18 +11,21 @@
   <title>HBHS booking website</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="content-wrapper">
     <header>
-      <img src="images/logo place holder.png" class="logo">
+      <img src="images/logo.png" class="logo">
     </header>
     <div id="wrapperNav">
       <nav>
         <ul class="navList">
-          <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
-          <li class="navListItem"><a class="navLinks" href="#">About</a></li>
+          <li class="navListItem"><a class="navLinks" href="test.php">Book</a></li>
+          <li class="navListItem"><a class="navLinks" href="register.php">About</a></li>
           <li class="navListItem"><a class="navLinks" href="index.html">Home</a></li>
         </ul>
 
@@ -28,7 +35,7 @@
           <div class="sub-menu">
             <div class="user-info">
               <i data-feather="user" class="user-info-icon"></i>
-              <h3>USER NAME</h3>
+              <h3><?php echo $_SESSION['user']['first_name'] ?> <?php echo $_SESSION['user']['last_name'] ?></h3>
             </div>
 
             <hr>
@@ -44,37 +51,34 @@
               <p>Help</p>
               <span>></span>
             </a>
-            <a href="#" class="sub-menu-link">
+
+            <a href="includes/logout.inc.php" class="sub-menu-link">
               <i data-feather="log-out" class="user-info-icon"></i>
               <p>Logout</p>
               <span>></span>
             </a>
           </div>
         </div>
-    </div>
-    </nav>
+      </nav>
 
-    <main>
-      <h1></h1>
-    </main>
-  </div>
+      <div id="index-image-container">
+        <div id="index-text">
+          <h1>HBHS Booking Website</h1>
+          <button>Book Now</button>
+        </div>
+      </div>
 
-  <footer>
-    <h3>Contact Us</h3>
-    <i data-feather="instagram"></i>
-  </footer>
+      <script>
+        feather.replace();
+      </script>
 
-  <script>
-    feather.replace();
-  </script>
+      <script>
+        let subMenu = document.getElementById("subMenu");
 
-  <script>
-    let subMenu = document.getElementById("subMenu");
-
-    function toggleMenu() {
-      subMenu.classList.toggle("open-menu")
-    }
-  </script>
+        function toggleMenu() {
+          subMenu.classList.toggle("open-menu")
+        }
+      </script>
 </body>
 
 </html>
