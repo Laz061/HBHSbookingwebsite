@@ -24,13 +24,19 @@ if (isset($_SESSION["userid"])) {
             <img src="images/logo.png" class="logo">
         </header>
 
+        <nav>
+            <ul class="navList">
+                <li class="navListItem"><a class="navLinks" href="login.php">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
+            </ul>
+
+            <a class="btnLogin" href="login.php">Login</a>
+        </nav>
+
         <div class="lform-wrapper">
             <section>
                 <div class="lform-box">
                     <form action="includes/loginform.inc.php" method="post">
-
-                        <a href="index.php"><i data-feather="home" class="btnhome"></i></a>
-
                         <h2>Login</h2>
 
                         <div class="input-box">

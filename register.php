@@ -13,19 +13,30 @@ if (isset($_SESSION["userid"])) {
     <title>HBHS booking website</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="content-wrapper">
         <header>
             <img src="images/logo.png" class="logo">
         </header>
+
+        <nav>
+            <ul class="navList">
+                <li class="navListItem"><a class="navLinks" href="login.php">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
+            </ul>
+
+            <a class="btnLogin" href="login.php">Login</a>
+        </nav>
 
         <div class="lform-wrapper">
             <section>
                 <div class="lform-box" id="register_form">
                     <form action="includes/registerform.inc.php" method="post">
-                        <a href="index.php"><i data-feather="home" class="btnhome"></i></a>
                         <h2>Register</h2>
 
                         <div class="input-box">
@@ -101,7 +112,6 @@ if (isset($_SESSION["userid"])) {
     <script>
         feather.replace();
     </script>
-
 </body>
 
 </html>
