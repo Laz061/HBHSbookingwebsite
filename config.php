@@ -27,6 +27,8 @@ if (!isset($_SESSION['last_rengeneration'])) {
     }
 }
 
+/*
 if (isset($_SESSION["userid"]) && $_SESSION["userid"] === true) {
     header("Location: ./indexli.php");
-};
+}
+*/

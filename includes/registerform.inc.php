@@ -69,11 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = NULL;
 
             //sends user back to login page or index
-            header("Location: ../indexli.html");
+            header("Location: ../login.php");
             die();
         } catch (PDOException $e) {
             die("query failed: " . $e->getMessage());
-            header("Location: ../index.html");
+            header("Location: ../index.php");
         };
     }
 }

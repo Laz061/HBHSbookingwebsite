@@ -1,3 +1,9 @@
+<?php
+require_once "./config.php";
+if (isset($_SESSION["userid"])) {
+    header("Location: ./indexli.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -50,7 +56,7 @@
                             <span class="icon">
                                 <i data-feather="phone"></i>
                             </span>
-                            <input type="text" name="phone" placeholder=" ">
+                            <input type="text" name="phone" required placeholder=" ">
                             <label>Phone Number</label>
                         </div>
 
@@ -58,7 +64,7 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required name="password" placeholder=" ">
+                            <input type="password" required name="password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                             <label>password</label>
                         </div>
 
@@ -66,7 +72,7 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required name="confirm_password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                            <input type="password" required name="password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                             <label>Confirm Password</label>
                         </div>
 
@@ -77,10 +83,10 @@
                         </div>
                         -->
 
-                        <button class="lgbutton" type="submit">Register</button>
+                        <button class="form-button" type="submit">Register</button>
 
                         <div class="register-link">
-                            <p>already have an account? <a href="login.html">Login</a></p>
+                            <p>already have an account? <a href="login.php">Login</a></p>
                         </div>
                     </form>
                 </div>

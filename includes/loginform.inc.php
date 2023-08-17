@@ -48,7 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "login successful";
 
                     //redirects user to welcome page
-                    //header("Location: ../indexli.php");
+                    header("Location: ../indexli.php");
+                } else {
+                    echo "password incorrect";
                 }
             } else {
                 echo "No user exists with that email";
@@ -61,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die();
         } catch (PDOException $e) {
             die("query failed: " . $e->getMessage());
-            header("Location: ../indexli.php");
+            header("Location: ../index.php");
         };
     }
 }

@@ -1,3 +1,9 @@
+<?php
+require_once "./config.php";
+if (isset($_SESSION["userid"])) {
+    header("Location: ./indexli.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -9,9 +15,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -52,7 +56,7 @@
                         </div>
                         -->
 
-                        <button class="lgbutton" type="submit">Login</button>
+                        <button class="form-button" type="submit">Login</button>
 
                         <div class="register-link">
                             <p>Don't have an account? <a href="register.php">Register</a></p>

@@ -1,5 +1,8 @@
 <?php
 require_once "./config.php";
+if (!isset($_SESSION["userid"]) && $_SESSION["userid"] !== true) {
+  header("Location: ./index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +27,9 @@ require_once "./config.php";
     <div id="wrapperNav">
       <nav>
         <ul class="navList">
-          <li class="navListItem"><a class="navLinks" href="test.php">Book</a></li>
-          <li class="navListItem"><a class="navLinks" href="register.php">About</a></li>
-          <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
+          <li class="navListItem"><a class="navLinks" href="booking.php">Book</a></li>
+          <li class="navListItem"><a class="navLinks" href="#">About</a></li>
+          <li class="navListItem"><a class="navLinks" href="indexli.php">Home</a></li>
         </ul>
 
         <i data-feather="user" class="user-pic" onclick="toggleMenu()"></i>
@@ -64,7 +67,7 @@ require_once "./config.php";
       <div id="index-image-container">
         <div id="index-text">
           <h1>HBHS Booking Website</h1>
-          <button>Book Now</button>
+          <a href="booking.php"><button>Book Now</button></a>
         </div>
       </div>
 

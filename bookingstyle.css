@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+#booking-content-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2vh;
+}
+
+#calendar-container {
+    flex: 8;
+    padding: 2vh;
+    height: 100%;
+}
+
+.sidenav {
+    z-index: 1;
+    background: #5a181a;
+    overflow-x: hidden;
+    padding: 0.5vh;
+    border-radius: 2vh;
+    margin: 2vh 0 0 2vh;
+    position: sticky;
+    top: 8vh;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.sidenav a:hover {
+    color: #837651;
+}
+
+@media screen and (max-width: 565px) {
+    .sidenav {
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0vh;
+    }
+
+    .sidenav-container {
+        /* flex: 1; */
+        width: 100%;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    #booking-content-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*Booking form*/
+#booking-form {
+    padding: 2vh;
+}
+
+#booking-form h2 {
+    font-size: 2em;
+    color: #180203;
+}
+
+
+/* Booking input boxes  */
+.booking-input-box {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 30px 0;
+    border-bottom: 2px solid #180203;
+}
+
+.booking-input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #180203;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.booking-input-box input:focus~label,
+.booking-input-box input:not(:placeholder-shown)~label {
+    top: -5px;
+}
+
+.booking-input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #180203;
+    padding: 0 40px 0 5px;
+}
+
+.booking-input-box .icon {
+    position: absolute;
+    right: 8px;
+    color: #180203;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #180203;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #180203;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.lgbutton {
+    width: 100%;
+    height: 40px;
+    background: #5a181a;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    transition: 0.5s;
+}
+
+.lgbutton:hover {
+    color: #837651;
+}
+
+.register-link {
+    font-size: .9em;
+    color: #180203;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register-link p a {
+    color: #180203;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+    .lform-box {
+        width: 100%;
+        height: 91.5vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    .input-box {
+        width: 270px;
+    }
+}
