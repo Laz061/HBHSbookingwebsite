@@ -27,7 +27,6 @@ if (isset($_SESSION["userid"])) {
         <nav>
             <ul class="navList">
                 <li class="navListItem"><a class="navLinks" href="login.php">Book</a></li>
-                <li class="navListItem"><a class="navLinks" href="#">About</a></li>
                 <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
             </ul>
 

@@ -36,7 +36,6 @@ $bookings = $stmt->fetchAll();
         <nav>
             <ul class="navList">
                 <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
-                <li class="navListItem"><a class="navLinks" href="register.php">About</a></li>
                 <li class="navListItem"><a class="navLinks" href="indexli.php">Home</a></li>
             </ul>
 
