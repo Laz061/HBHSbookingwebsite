@@ -35,10 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = '<p class="error">Passwords dont match</p>';
     }
 
-    if (!empty($error)) {
-        echo $error;
-    }
-
     //if there are no errors then it will insert the data
     if (empty($error)) {
         try {
@@ -77,3 +73,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         };
     }
 }
+?>
+
+<!DOCTYPE html>
+<html lang="EN-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>HBHS booking website</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="error-wrapper">
+        <?php
+        if (!empty($error)) {
+            echo $error;
+            echo "<br>";
+            echo "<button class='errorbtn'><a href=\"javascript:history.go(-1)\">GO TO PREVIOUS PAGE</a></button>";
+        }
+        ?>
+    </div>
+</body>
+
+</html>

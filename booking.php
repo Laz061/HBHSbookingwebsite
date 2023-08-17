@@ -119,7 +119,17 @@ $bookings = $stmt->fetchAll();
             </div>
         </div>
 
-        <script src="scripts.js"></script>
+        <script>
+            feather.replace();
+        </script>
+
+        <script>
+            let subMenu = document.getElementById("subMenu");
+
+            function toggleMenu() {
+                subMenu.classList.toggle("open-menu")
+            }
+        </script>
         <script>
             let ec = new EventCalendar(document.getElementById('ec'), {
                 view: 'timeGridWeek',
@@ -163,14 +173,6 @@ $bookings = $stmt->fetchAll();
             });
 
             function createEvents() {
-                let days = [];
-                for (let i = 0; i < 7; ++i) {
-                    let day = new Date();
-                    let diff = i - day.getDay();
-                    day.setDate(day.getDate() + diff);
-                    days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
-                }
-
                 return [
                     <?php
                     foreach ($bookings as $booking) {

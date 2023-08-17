@@ -72,11 +72,6 @@ if (isset($_SESSION["userid"])) {
             </section>
         </div>
     </div>
-
-    <main>
-        <h1></h1>
-    </main>
-
     <script>
         feather.replace();
     </script>
