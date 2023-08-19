@@ -17,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($start < $current_time) {
         //checks if the start time is in the future
         $error = '<p class="error">Please select a start time that is in the future</p>';
+    } else if ($end == $start) {
+        $error = '<p class="error">Start time and End time cannont be the same</p>';
     } else if ($end < $start) {
         //checks if the end time is after the start time
         $error = '<p class="error">Please select a end time that is after the start time</p>';
@@ -28,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($error)) {
         //Prevention of double booking
-        $query = "SELECT * FROM gym_booking WHERE start_time < :etime AND start_time > :stime OR start_time < :stime AND end_time > :etime OR end_time > :stime AND end_time < :etime";
+        $query = "SELECT * FROM gym_booking WHERE start_time <= :etime AND start_time >= :stime OR start_time <= :stime AND end_time >= :etime OR end_time >= :stime AND end_time <= :etime";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":stime", $start_time);
         $stmt->bindParam(":etime", $end_time);
