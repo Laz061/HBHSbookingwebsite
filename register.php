@@ -83,7 +83,7 @@ if (isset($_SESSION["userid"])) {
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required name="password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
+                            <input type="password" required name="confirm_password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                             <label>Confirm Password</label>
                         </div>
 

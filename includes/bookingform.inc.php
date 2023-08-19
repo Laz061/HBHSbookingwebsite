@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //if there are no errors then it will insert the data
     if (empty($error)) {
         try {
-            $insertQuery = "INSERT INTO gym_booking (start_time, end_time, reservation_name, reservation_email) VALUES (:stime, :etime, :fname, :email);";
+            $insertQuery = "INSERT INTO gym_booking (start_time, end_time, reservation_name, reservation_email, event_name) VALUES (:stime, :etime, :fname, :email, :ename);";
 
             //prepares a blank query for $pdo database    
             $stmt = $pdo->prepare($insertQuery);
@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(":etime", $end_time);
             $stmt->bindParam(":fname", $_SESSION['user']['first_name']);
             $stmt->bindParam(":email", $_SESSION['user']['email']);
+            $stmt->bindParam(":ename", $eventName);
 
             //submits actual data entered by user
             $stmt->execute();

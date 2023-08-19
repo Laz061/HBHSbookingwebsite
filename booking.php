@@ -92,7 +92,7 @@ $bookings = $stmt->fetchAll();
 
                         <div class="booking-input-box">
                             <span class="icon">
-                                <i data-feather="mail"></i>
+                                <i data-feather="user"></i>
                             </span>
                             <input type="text" required name="event_name" placeholder=" ">
                             <label>Event Name</label>
@@ -100,18 +100,18 @@ $bookings = $stmt->fetchAll();
 
                         <div class="booking-input-box">
                             <span class="icon">
-                                <i data-feather="user"></i>
+                                <i data-feather="clock"></i>
                             </span>
                             <input type="datetime-local" required name="start_time" placeholder=" ">
-                            <label>Start time</label>
+                            <label>Start Date and Time</label>
                         </div>
 
                         <div class="booking-input-box">
                             <span class="icon">
-                                <i data-feather="user"></i>
+                                <i data-feather="clock"></i>
                             </span>
                             <input type="datetime-local" required name="end_time" placeholder=" ">
-                            <label>End time</label>
+                            <label>End Date Time</label>
                         </div>
                         <button class="form-button" type="submit">Book</button>
                     </form>
