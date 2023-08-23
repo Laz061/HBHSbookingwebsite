@@ -1,6 +1,6 @@
 <?php
 require_once "./config.php";
-if (!isset($_SESSION["userid"]) && $_SESSION["userid"] !== true) {
+if (!isset($_SESSION["userid"])) {
   header("Location: ./index.php");
 }
 ?>
@@ -41,7 +41,7 @@ if (!isset($_SESSION["userid"]) && $_SESSION["userid"] !== true) {
 
           <hr>
 
-          <a href="#" class="sub-menu-link">
+          <a href="includes/redirect.inc.php" class="sub-menu-link">
             <i data-feather="user" class="user-info-icon"></i>
             <p>profile</p>
             <span>></span>
