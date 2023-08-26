@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $start = new DateTime($_POST["start_time"], new DateTimeZone('Pacific/Auckland'));
     $end = new DateTime($_POST["end_time"], new DateTimeZone('Pacific/Auckland'));
     $current_time = new DateTime('Pacific/Auckland');
+    $reservationName = "{$_SESSION['user']['first_name']} {$_SESSION['user']['last_name']}";
 
     if (empty($eventName)) {
         $error = '<p class="error">Please enter an event name</p>';
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //binds variables to parameters set in the query
             $stmt->bindParam(":stime", $start_time);
             $stmt->bindParam(":etime", $end_time);
-            $stmt->bindParam(":fname", $_SESSION['user']['first_name']);
+            $stmt->bindParam(":fname", $reservationName);
             $stmt->bindParam(":email", $_SESSION['user']['email']);
             $stmt->bindParam(":ename", $eventName);
 

@@ -50,7 +50,7 @@ $bookings = $stmt->fetchAll();
 
                     <hr>
 
-                    <a href="#" class="sub-menu-link">
+                    <a href="includes/redirect.inc.php" class="sub-menu-link">
                         <i data-feather="user" class="user-info-icon"></i>
                         <p>profile</p>
                         <span>></span>
@@ -130,6 +130,7 @@ $bookings = $stmt->fetchAll();
                 subMenu.classList.toggle("open-menu")
             }
         </script>
+
         <script>
             let ec = new EventCalendar(document.getElementById('ec'), {
                 view: 'timeGridWeek',
@@ -179,6 +180,7 @@ $bookings = $stmt->fetchAll();
                         echo "{
                             start: '{$booking["start_time"]}',
                             end: '{$booking["end_time"]}',
+
                         },";
                     }
                     ?>

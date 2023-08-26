@@ -1,68 +1,31 @@
-<?php
-
-require_once "includes/dbh.inc.php";
-require_once "config.php";
-
-$query = "SELECT * FROM gym_booking";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$bookings = $stmt->fetchAll();
-
-foreach ($bookings as $booking) {
-    echo $booking["start_time"];
-    echo "<br>";
-}
-
-
-/*
-
-    echo $booking["id"];
-    echo "<br>"
-
-
-$query = "SELECT * FROM gym_booking WHERE start_time > :start AND start_time > :end";
-
-$stmt = $pdo->prepare($query);
-$stmt->bindParam(":start", $start);
-$stmt->bindParam(":end", $end);
-$stmt->execute();
-
-//fetches the number of rows and stores it
-$results = $stmt->fetchColumn();
-
-//if there are any results then outputs error
-if ($results > 0) {
-    $error = '<p class="error">This booking overlaps with a prexisting booking</p>';
-}
-*/
-
-?>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.js"></script>
 
 <body>
     <div id="ec">
 
     </div>
-</body>
 
-<script type="text/javascript">
-    let ec = new EventCalendar(document.getElementById('ec'), {
-        view: 'timeGridWeek',
-        headerToolbar: {
-            start: 'prev,next today',
-            center: 'title',
-            end: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek resourceTimeGridWeek'
-        },
-        buttonText: function(texts) {
-            texts.resourceTimeGridWeek = 'resources';
-            return texts;
-        },
-        resources: [{
+    <script type="text/javascript">
+        let ec = new EventCalendar(document.getElementById('ec'), {
+            view: 'timeGridWeek',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek resourceTimeGridWeek'
+            },
+            buttonText: function (texts) {
+                texts.resourceTimeGridWeek = 'resources';
+                return texts;
+            },
+            resources: [{
                 id: 1,
                 title: 'Resource A'
             },
@@ -70,32 +33,32 @@ if ($results > 0) {
                 id: 2,
                 title: 'Resource B'
             }
-        ],
-        scrollTime: '09:00:00',
-        events: createEvents(),
-        views: {
-            timeGridWeek: {
-                pointer: true
+            ],
+            scrollTime: '09:00:00',
+            events: createEvents(),
+            views: {
+                timeGridWeek: {
+                    pointer: true
+                },
+                resourceTimeGridWeek: {
+                    pointer: true
+                }
             },
-            resourceTimeGridWeek: {
-                pointer: true
+            dayMaxEvents: true,
+            nowIndicator: true,
+            selectable: true
+        });
+
+        function createEvents() {
+            let days = [];
+            for (let i = 0; i < 7; ++i) {
+                let day = new Date();
+                let diff = i - day.getDay();
+                day.setDate(day.getDate() + diff);
+                days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
             }
-        },
-        dayMaxEvents: true,
-        nowIndicator: true,
-        selectable: true
-    });
 
-    function createEvents() {
-        let days = [];
-        for (let i = 0; i < 7; ++i) {
-            let day = new Date();
-            let diff = i - day.getDay();
-            day.setDate(day.getDate() + diff);
-            days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
-        }
-
-        return [{
+            return [{
                 start: days[0] + " 00:00",
                 end: days[0] + " 09:00",
                 resourceId: 1,
@@ -179,13 +142,14 @@ if ($results > 0) {
                 color: "#B29DD9",
                 allDay: true
             }
-        ];
-    }
+            ];
+        }
 
-    function _pad(num) {
-        let norm = Math.floor(Math.abs(num));
-        return (norm < 10 ? '0' : '') + norm;
-    }
-</script>
+        function _pad(num) {
+            let norm = Math.floor(Math.abs(num));
+            return (norm < 10 ? '0' : '') + norm;
+        }
+    </script>
+</body>
 
 </html>

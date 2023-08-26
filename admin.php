@@ -24,8 +24,8 @@ $bookings = $stmt->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.1/event-calendar.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.1/event-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.js"></script>
 </head>
 
 <body>
@@ -85,6 +85,37 @@ $bookings = $stmt->fetchAll();
                 <div id="ec">
 
                 </div>
+
+                <div class="booking-list-container">
+                    <table class="booking-list">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Start time</th>
+                                <th scope="col">End time</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Event name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <?php
+                                foreach ($bookings as $booking) {
+                                    echo "<tr>
+                                        <td>{$booking["id"]}</td>
+                                        <td>{$booking["start_time"]}</td>
+                                        <td>{$booking["end_time"]}</td>
+                                        <td>{$booking["reservation_name"]}</td>
+                                        <td>{$booking["reservation_email"]}</td>
+                                        <td>{$booking["event_name"]}</td>
+                                        </tr>";
+                                }
+                                ?>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -142,16 +173,28 @@ $bookings = $stmt->fetchAll();
             });
 
             function createEvents() {
+                let days = [];
+                for (let i = 0; i < 7; ++i) {
+                    let day = new Date();
+                    let diff = i - day.getDay();
+                    day.setDate(day.getDate() + diff);
+                    days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
+                }
+
                 return [
                     <?php
                     foreach ($bookings as $booking) {
+
                         echo "{
                             start: '{$booking["start_time"]}',
                             end: '{$booking["end_time"]}',
+                            title: {
+                                html: 'Reservation Name: {$booking["reservation_name"]}<br>Event Name: {$booking["event_name"]}'
+                            }
                         },";
                     }
                     ?>
-                ];
+                ]
             }
 
             function _pad(num) {
