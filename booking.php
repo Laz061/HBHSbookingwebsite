@@ -2,7 +2,7 @@
 require_once "./config.php";
 require_once "includes/dbh.inc.php";
 if (!isset($_SESSION["userid"]) && $_SESSION["userid"] !== true) {
-    header("Location: ./index.php");
+    header("Location: ./login.php");
 }
 
 $query = "SELECT * FROM gym_booking";

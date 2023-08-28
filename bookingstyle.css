@@ -14,6 +14,14 @@
     height: 100%;
 }
 
+#calendar-container h1 {
+    font-family: 'Readex Pro', sans-serif;
+    color: #5a181a;
+    padding: 2vh;
+    font-size: 5vh;
+    text-align: center;
+}
+
 .sidenav {
     z-index: 1;
     background: #5a181a;
@@ -62,6 +70,7 @@
         flex-wrap: wrap-reverse;
         flex-direction: column;
         align-items: center;
+        margin: 0px;
     }
 }
 

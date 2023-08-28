@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION["user"] = $results;
 
                     //redirects user to welcome page
-                    header("Location: ../indexli.php");
+                    header("Location: ./redirect.inc.php");
 
                     //empties the variables to free up resources
                     $insertQuery = NULL;

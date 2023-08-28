@@ -5,8 +5,9 @@ if (!isset($_SESSION["userid"]) && $_SESSION["userid"] !== true) {
     header("Location: ./index.php");
 }
 
-$query = "SELECT * FROM gym_booking";
+$query = "SELECT * FROM gym_booking WHERE reservation_email = :email";
 $stmt = $pdo->prepare($query);
+$stmt->bindParam(":email", $_SESSION['user']['email']);
 $stmt->execute();
 $bookings = $stmt->fetchAll();
 ?>
@@ -24,8 +25,8 @@ $bookings = $stmt->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.1/event-calendar.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.1/event-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@ $bookings = $stmt->fetchAll();
         </header>
         <nav>
             <ul class="navList">
-                <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="booking.php">Book</a></li>
                 <li class="navListItem"><a class="navLinks" href="indexli.php">Home</a></li>
             </ul>
 
@@ -82,8 +83,49 @@ $bookings = $stmt->fetchAll();
             </div>
 
             <div id="calendar-container">
+                <h1>My Bookings</h1>
                 <div id="ec">
 
+                </div>
+                <div class="booking-list-container">
+                    <table class="booking-list">
+
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Start time</th>
+                                <th scope="col">End time</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Event name</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <?php
+                                foreach ($bookings as $booking) {
+                                    if ($booking["status"] == true) {
+                                        $status = "Approved";
+                                    }
+                                    if ($booking["status"] == false) {
+                                        $status = "Pending";
+                                    }
+
+                                    echo "<tr>
+                                        <td>{$booking["id"]}</td>
+                                        <td>{$booking["start_time"]}</td>
+                                        <td>{$booking["end_time"]}</td>
+                                        <td>{$booking["reservation_name"]}</td>
+                                        <td>{$booking["reservation_email"]}</td>
+                                        <td>{$booking["event_name"]}</td>
+                                        <td>{$status}</td>
+                                        </tr>";
+                                }
+                                ?>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -148,6 +190,9 @@ $bookings = $stmt->fetchAll();
                         echo "{
                             start: '{$booking["start_time"]}',
                             end: '{$booking["end_time"]}',
+                            title: {
+                                html: 'Reservation Name: {$booking["reservation_name"]}<br>Event Name: {$booking["event_name"]}'
+                            }
                         },";
                     }
                     ?>

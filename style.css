@@ -444,3 +444,28 @@ footer {
     text-decoration: none;
     font-family: 'Readex Pro', sans-serif;
 }
+
+/* booking list */
+.booking-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6vh;
+}
+
+.booking-list th {
+    padding: 2vh;
+    background-color: #5a181a;
+    color: #fff;
+}
+
+.booking-list td {
+    padding: 2vh;
+}
+
+.listbtn {
+    background-color: #5a181a;
+    color: #fff;
+    font-family: 'Readex Pro', sans-serif;
+    padding: 1.5vh;
+    text-decoration: none;
+}

@@ -9,6 +9,29 @@ $query = "SELECT * FROM gym_booking";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
 $bookings = $stmt->fetchAll();
+
+if (isset($_GET['id'])) {
+
+    if ($_GET['action'] == "delete") {
+        $id = $_GET['id'];
+        $delete = "DELETE FROM `gym_booking` WHERE `id` = :id";
+        $stmt = $pdo->prepare($delete);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        header("Location: ./includes/redirect.inc.php");
+        die();
+    }
+
+    if ($_GET['action'] == "approve") {
+        $id = $_GET['id'];
+        $approve = "UPDATE `gym_booking` SET `status` = '1' WHERE `gym_booking`.`id` = :id";
+        $stmt = $pdo->prepare($approve);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        header("Location: ./includes/redirect.inc.php");
+        die();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,12 +105,15 @@ $bookings = $stmt->fetchAll();
             </div>
 
             <div id="calendar-container">
+                <h1 id="calender-heading">Admin Panel</h1>
                 <div id="ec">
 
                 </div>
 
                 <div class="booking-list-container">
                     <table class="booking-list">
+                        <h2>List of all bookings</h2>
+
                         <thead>
                             <tr>
                                 <th scope="col">id</th>
@@ -96,12 +122,21 @@ $bookings = $stmt->fetchAll();
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Event name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <?php
                                 foreach ($bookings as $booking) {
+                                    if ($booking["status"] == true) {
+                                        $status = "Approved";
+                                    }
+                                    if ($booking["status"] == false) {
+                                        $status = "Pending";
+                                    }
+
                                     echo "<tr>
                                         <td>{$booking["id"]}</td>
                                         <td>{$booking["start_time"]}</td>
@@ -109,6 +144,11 @@ $bookings = $stmt->fetchAll();
                                         <td>{$booking["reservation_name"]}</td>
                                         <td>{$booking["reservation_email"]}</td>
                                         <td>{$booking["event_name"]}</td>
+                                        <td>{$status}</td>
+                                        <td>
+                                        <a href='?id={$booking["id"]}&action=approve'class='listbtn'>Approve</a>
+                                        <a href='?id={$booking["id"]}&action=delete'class='listbtn'>Delete</a>
+                                        </td>
                                         </tr>";
                                 }
                                 ?>
