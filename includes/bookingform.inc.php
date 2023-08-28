@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!empty($error)) {
             echo $error;
             echo "<br>";
-            echo "<button class='errorbtn'><a href=\"javascript:history.go(-1)\">GO TO PREVIOUS PAGE</a></button>";
+            echo "<a class='errorbtn' href=\"javascript:history.go(-1)\">GO TO PREVIOUS PAGE</a>";
         }
         ?>
     </div>

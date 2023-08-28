@@ -427,22 +427,21 @@ footer {
 }
 
 .errorbtn {
-    border: none;
-    display: inline;
-    padding: 10px 25px;
-    background-color: #5a181a;
-    text-align: center;
-    cursor: pointer;
-    width: 30vh;
-    height: 5vh;
-    margin: 3vh;
-    border-radius: 40px;
-}
-
-.errorbtn a {
     color: #fff;
     text-decoration: none;
     font-family: 'Readex Pro', sans-serif;
+    border: none;
+    display: inline;
+    padding: 2vh;
+    background-color: #5a181a;
+    text-align: center;
+    cursor: pointer;
+    width: 35vh;
+    height: 6vh;
+    margin: 3vh;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 17px;
 }
 
 /* booking list */
@@ -450,6 +449,13 @@ footer {
     width: 100%;
     border-collapse: collapse;
     margin-top: 6vh;
+}
+
+.booking-list h2 {
+    font-family: 'Readex Pro', sans-serif;
+    color: #5a181a;
+    padding: 1vh;
+    font-size: 4vh;
 }
 
 .booking-list th {
