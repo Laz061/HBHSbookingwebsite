@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
         </header>
         <nav>
             <ul class="navList">
-                <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="booking.php">Book</a></li>
                 <li class="navListItem"><a class="navLinks" href="indexli.php">Home</a></li>
             </ul>
 
@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
                 headerToolbar: {
                     start: 'prev,next today',
                     center: 'title',
-                    end: 'timeGridWeek,timeGridDay,listWeek'
+                    end: 'timeGridWeek,timeGridDay,listWeek',
                 },
                 buttonText: function(texts) {
                     texts.resourceTimeGridWeek = 'resources';

@@ -3,18 +3,20 @@
 require_once "includes/dbh.inc.php";
 require_once "config.php";
 
-$query = "SELECT * FROM gym_booking";
+//Prevention of double booking
+$query = "SELECT * FROM gym_booking WHERE start_time <= :end-time AND start_time >= :start-time OR start_time <= :stime AND end_time >= :etime OR end_time >= :stime AND end_time <= :etime";
 $stmt = $pdo->prepare($query);
+$stmt->bindParam(":stime", $start_time);
+$stmt->bindParam(":etime", $end_time);
 $stmt->execute();
-$bookings = $stmt->fetchAll();
 
-foreach ($bookings as $booking) {
-    echo $booking["start_time"];
-    echo "<br>";
+//fetches the number of rows and stores it
+$results = $stmt->fetchColumn();
+
+//if there are any results then outputs error
+if ($results > 0) {
+    $error = '<p class="error">This booking overlaps with a pre-existing booking</p>';
 }
-
-echo $_SESSION['user']['email'];
-
 /*
 
     echo $booking["id"];

@@ -17,7 +17,7 @@ header {
     padding: 8px 5%;
     display: flex;
     background: #180203;
-    height: 8.5vh;
+    height: 9vh;
 }
 
 .logo {
@@ -394,7 +394,7 @@ nav {
 }
 
 #index-text h1 {
-    font-family: 'Readex Pro', sans-serif;
+    font-family: 'Battambang', cursive;
     text-align: center;
 }
 

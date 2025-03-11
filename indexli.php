@@ -27,6 +27,7 @@ if (!isset($_SESSION["userid"])) {
     <nav>
       <ul class="navList">
         <li class="navListItem"><a class="navLinks" href="booking.php">Book</a></li>
+        <li class="navListItem"><a class="navLinks" href="indexli.php">About</a></li>
         <li class="navListItem"><a class="navLinks" href="indexli.php">Home</a></li>
       </ul>
 
