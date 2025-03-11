@@ -1,5 +1,8 @@
 <?php
 require_once "./config.php";
+if (isset($_SESSION["userid"])) {
+    header("Location: ./indexli.php");
+};
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +26,18 @@ require_once "./config.php";
         </header>
         <nav>
             <ul class="navList">
-                <li class="navListItem"><a class="navLinks" href="#">Book</a></li>
-                <li class="navListItem"><a class="navLinks" href="#">About</a></li>
-                <li class="navListItem"><a class="navLinks" href="index.html">Home</a></li>
+                <li class="navListItem"><a class="navLinks" href="login.php">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
             </ul>
 
-            <a class="btnLogin" href="login.html">Login</a>
+            <a class="btnLogin" href="login.php">Login</a>
         </nav>
 
 
         <div id="index-image-container">
             <div id="index-text">
                 <h1>HBHS Booking Website</h1>
-                <button>Book Now</button>
+                <a href="login.php"><button>Book Now</button></a>
             </div>
         </div>
     </div>

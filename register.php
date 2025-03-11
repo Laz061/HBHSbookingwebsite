@@ -1,3 +1,9 @@
+<?php
+require_once "./config.php";
+if (isset($_SESSION["userid"])) {
+    header("Location: ./indexli.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="EN-US">
 
@@ -7,19 +13,30 @@
     <title>HBHS booking website</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="content-wrapper">
         <header>
             <img src="images/logo.png" class="logo">
         </header>
+
+        <nav>
+            <ul class="navList">
+                <li class="navListItem"><a class="navLinks" href="login.php">Book</a></li>
+                <li class="navListItem"><a class="navLinks" href="index.php">Home</a></li>
+            </ul>
+
+            <a class="btnLogin" href="login.php">Login</a>
+        </nav>
 
         <div class="lform-wrapper">
             <section>
                 <div class="lform-box" id="register_form">
                     <form action="includes/registerform.inc.php" method="post">
-                        <a href="index.html"><i data-feather="home" class="btnhome"></i></a>
                         <h2>Register</h2>
 
                         <div class="input-box">
@@ -50,7 +67,7 @@
                             <span class="icon">
                                 <i data-feather="phone"></i>
                             </span>
-                            <input type="text" name="phone" placeholder=" ">
+                            <input type="text" name="phone" required placeholder=" ">
                             <label>Phone Number</label>
                         </div>
 
@@ -58,7 +75,7 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required name="password" placeholder=" ">
+                            <input type="password" required name="password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                             <label>password</label>
                         </div>
 
@@ -66,19 +83,21 @@
                             <span class="icon">
                                 <i data-feather="lock"></i>
                             </span>
-                            <input type="password" required name="confirm_password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                            <input type="password" required name="confirm_password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                             <label>Confirm Password</label>
                         </div>
 
+                        <!--
                         <div class="remember-forgot">
                             <label><input type="checkbox"> Remember me</label>
                             <a href="#">Forgot Password?</a>
                         </div>
+                        -->
 
-                        <button class="lgbutton" type="submit">Register</button>
+                        <button class="form-button" type="submit">Register</button>
 
                         <div class="register-link">
-                            <p>already have an account? <a href="login.html">Login</a></p>
+                            <p>already have an account? <a href="login.php">Login</a></p>
                         </div>
                     </form>
                 </div>
@@ -86,14 +105,9 @@
         </div>
     </div>
 
-    <main>
-        <h1></h1>
-    </main>
-
     <script>
         feather.replace();
     </script>
-
 </body>
 
 </html>

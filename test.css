@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    color: #525252;
+}
+
+header {
+    width: 100%;
+    padding: 8px 5%;
+    display: flex;
+    background: #180203;
+    height: 8.5vh;
+}
+
+.logo {
+    width: 80px;
+}
+
+/* nav bar */
+nav {
+    background: #5a181a;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    height: 6vh;
+    padding: 0 2%;
+    z-index: 10;
+}
+
+.user-pic {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+    color: white;
+    transition: all 0.5s;
+}
+
+.user-pic:hover {
+    color: #837651;
+}
+
+.btnLogin {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 0;
+    width: 130px;
+    height: 35px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.5s;
+    margin: 0 0 0 40px;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.btnLogin:hover {
+    color: #837651;
+    background-color: #fff;
+}
+
+.navList {
+    width: 100%;
+    text-align: right;
+}
+
+.navListItem {
+    display: flex;
+    float: right;
+    list-style: none;
+}
+
+.navLinks {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.5s;
+    font-size: 16px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.navLinks:hover {
+    color: #837651;
+}
+
+/* Nav button underline effect */
+.navLinks:before {
+    transition: ease-in-out 0.3s;
+    content: "";
+    bottom: 0px;
+    cursor: pointer;
+    height: 5px;
+    width: 0%;
+    position: absolute;
+    box-sizing: border-box;
+    background-color: #837651;
+    right: 50%;
+    transform: translate(50%, 0);
+}
+
+.navLinks:hover::before {
+    cursor: pointer;
+    width: 100%;
+}
+
+/*Folding menu */
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    width: 300px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height ease-in-out 0.5s;
+    z-index: 1;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 4%;
+    border: 3px solid #5a181a;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3 {
+    font-weight: 500;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 3px;
+    width: 100%;
+    background: #5a181a;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 12px 0;
+    color: #5a181a;
+}
+
+.sub-menu-link p {
+    width: 100%;
+}
+
+.user-info-icon {
+    width: 40px;
+    margin-right: 15px;
+    color: #5a181a;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(7px);
+    transition: transform 0.5s;
+}
+
+.sub-menu-link p:hover {
+    font-weight: 600;
+}
+
+
+
+#booking-content-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2vh;
+}
+
+#calendar-container {
+    flex: 8;
+    padding: 2vh;
+    height: 100%;
+}
+
+#calendar-container h1 {
+    font-family: 'Readex Pro', sans-serif;
+    color: #5a181a;
+    padding: 2vh;
+    font-size: 5vh;
+    text-align: center;
+}
+
+.sidenav {
+    z-index: 1;
+    background: #5a181a;
+    overflow-x: hidden;
+    padding: 0.5vh;
+    border-radius: 2vh;
+    margin: 2vh 0 0 2vh;
+    position: sticky;
+    top: 8vh;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.sidenav a:hover {
+    color: #837651;
+}
+
+@media screen and (max-width: 565px) {
+    .sidenav {
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0vh;
+    }
+
+    .sidenav-container {
+        /* flex: 1; */
+        width: 100%;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    #booking-content-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+    }
+}
+
+#booking-content-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+#calendar-container {
+    flex: 10;
+}
+
+.sidenav-container {
+    flex: 1;
+}
